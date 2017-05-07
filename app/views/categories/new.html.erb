@@ -1,0 +1,20 @@
+<h2>Add New Category</h2>
+<%= form_for @category do |f| %>
+    <!-- If there are form errors -->
+    <% if @category.errors.any? %>
+        <div class="alert alert-warning">
+            <ul>
+                <% @category.errors.full_messages.each do |errMsg| %>
+                    <li><%= errMsg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <!-- Actual form -->
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+
+    <%= f.submit 'Add Category', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', categories_path, class: 'btn btn-default' %>
+<% end %>

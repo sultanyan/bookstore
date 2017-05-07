@@ -1,0 +1,18 @@
+<h3>Categories</h3>
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Category Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @categories.each do |category| %>
+            <tr>
+                <th><%= category.name %></th>
+                <th><%= link_to 'Edit', edit_category_path(category) %> | <%= link_to 'Delete', category_path(category), method: :delete, data: {confirm: "Are you sure?"} %></th>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -1,0 +1,28 @@
+<div id="books-show">
+    <h2><%= @book.title %></h2>
+
+    <div id="books-show-left">
+        <%= image_tag(@book.coverpath) %>
+    </div>
+    <div id="books-show-right">
+        <h3>Book Info:</h3>
+        <ul>
+            <li><strong>Category: </strong><%= @book.category.name %></li>
+            <li><strong>Author: </strong><%= @book.author.first_name + ' ' + @book.author.last_name %></li>
+            <li><strong>Publisher: </strong><%= @book.publisher.first_name + ' ' + @book.publisher.last_name %></li>
+            <li><strong>Year: </strong><%= @book.year %></li>
+            <li><strong>ISBN: </strong><%= @book.isbn %></li>
+            <li><strong>Format: </strong><%= @book.format %></li>
+            <li><strong>Pages: </strong><%= @book.pages %></li>
+            <%= link_to 'Buy For '+@book.price, @book.buy, class: 'btn btn-success', target: '_blank' %>
+        </ul>
+    </div>
+
+    <div class="clearfix"></div>
+    <h4>Excerpt</h4>
+    <p><%= @book.excerpt %></p>
+    <div id="admin-section">
+        <%= link_to 'Edit', edit_book_path(@book.id), class: 'btn btn-warning' %>
+        <%= link_to 'Delete', book_path(@book), method: :delete, data:{confirm: "Are you sure?"}, class: 'btn btn-danger' %>
+    </div>
+</div>

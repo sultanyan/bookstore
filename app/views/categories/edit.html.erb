@@ -1,0 +1,10 @@
+<h3>Edit category "<%= @category.name %>" </h3>
+<%= form_for @category do |f| %>
+    <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <%= f.submit 'Update Category', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', categories_path, class: 'btn btn-default' %>
+<% end %>

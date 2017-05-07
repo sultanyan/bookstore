@@ -1,0 +1,13 @@
+<h2><%= @category.name %></h2>
+<!-- Getting all books for a specific category, slicing -->
+<% @books.each_slice(4) do |books| %>
+    <div class="row">
+    <% books.each do |singleBook| %>
+        <div class="col-md-3 col-sm-3 singleBook">
+            <h3><%= singleBook.title %></h3>
+            <%= image_tag(singleBook.coverpath) %>
+            <%= link_to 'Read More', book_path(singleBook), class: 'btn btn-primary' %>
+        </div>
+    <% end %>
+    </div>
+<% end %>
